@@ -1,0 +1,18 @@
+<?php
+require_once 'functions.php';
+
+if (isset($_POST['flighttable'])) {
+    $flighttable = sanitizeString($_POST['flighttable']);
+    $result = queryMysql("SELECT DISTINCT start FROM $flighttable");
+
+    if ($result) {
+        $rows = mysql_num_rows($result);
+        for ($i = 0; $i < $rows; ++$i) {
+            $row = mysql_fetch_row($result);
+            echo "<option value='$row[0]'>$row[0]</option>";
+        }
+    } else {
+        echo "<option>None</option>";
+    }
+}
+?>
