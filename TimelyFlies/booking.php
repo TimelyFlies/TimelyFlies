@@ -60,7 +60,7 @@ if ($loggedin) {
             echo "<table><thead><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Price</th></thead><tbody>";
             for ($j = 0; $j < $rows; ++$j) {
                 $row = mysql_fetch_row($result);
-                echo "<tr><form name='bookflight' action='ticketing.php' method='GET'>" .
+                echo "<tr><form name='bookflight' action='ticketing.php' method='POST'>" .
                 "<input type='hidden' name='start' value='$start'/>" .
                 "<input type='hidden' name='flighttable' value='$flighttable'/>" .
                 "<input type='hidden' name='class' value='$class'/>" .

@@ -2,13 +2,13 @@
 require_once 'header.php';
 
 if ($loggedin) {
-    if (isset($_GET['start']) && isset($_GET['destination']) && isset($_GET['date']) && isset($_GET['time']) && isset($_GET['class']) && isset($_GET['flighttable'])) {
-        $start = sanitizeString($_GET['start']);
-        $destination = sanitizeString($_GET['destination']);
-        $flighttable = sanitizeString($_GET['flighttable']);
-        $date = sanitizeString($_GET['date']);
-        $time = sanitizeString($_GET['time']);
-        $class = ucfirst(sanitizeString($_GET['class']));
+    if (isset($_POST['start']) && isset($_POST['destination']) && isset($_POST['date']) && isset($_POST['time']) && isset($_POST['class']) && isset($_POST['flighttable'])) {
+        $start = sanitizeString($_POST['start']);
+        $destination = sanitizeString($_POST['destination']);
+        $flighttable = sanitizeString($_POST['flighttable']);
+        $date = sanitizeString($_POST['date']);
+        $time = sanitizeString($_POST['time']);
+        $class = ucfirst(sanitizeString($_POST['class']));
 
         echo "<title>$appname $userstr</title>";
         echo "<script src='ajax.js'></script>";
