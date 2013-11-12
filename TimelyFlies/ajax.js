@@ -73,8 +73,24 @@ function checkDate(date) {
     }
 }
 
-function calculatePrice() {
-
+function calculatePrice(price, childprice) {
+    var adults = O('adult');
+    adults = adults.options[adults.selectedIndex].value;
+    var children = O('child');
+    children = children.options[children.selectedIndex].value;
+    var infants = O('infant');
+    infants = infants.options[infants.selectedIndex].value;
+    var adultTotal = adults * price;
+    var childTotal = children * childprice;
+    var total = adultTotal + childTotal;
+    var priceText = "Adults:<br/>";
+    priceText = priceText.concat(adults + " x $" + price + " = $" + adultTotal + "<br/>");
+    priceText = priceText.concat("Children:<br/>");
+    priceText = priceText.concat(children + " x $" + childprice + " = $" + childTotal + "<br/>");
+    priceText = priceText.concat("Infants:<br/>");
+    priceText = priceText.concat(infants + " x $0 = $0<br/><br/>");
+    priceText = priceText.concat("Total = $" + total + "</br>");
+    O('pricecalculation').innerHTML = priceText;
 }
 
 function ajaxRequest() {

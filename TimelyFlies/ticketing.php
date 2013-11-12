@@ -10,37 +10,52 @@ if ($loggedin) {
         $time = sanitizeString($_GET['time']);
         $class = ucfirst(sanitizeString($_GET['class']));
 
-        echo "<title>$appname $userstr</title></head><body><div id='container'><div id='header' style='background-color:#FFA500;'><h1 style='margin-bottom:0;'>Ticketing</h1></div>";
+        echo "<title>$appname $userstr</title>";
+        echo "<script src='ajax.js'></script>";
+        echo "</head><body><div id='container'><div id='header' style='background-color:#FFA500;'><h1 style='margin-bottom:0;'>Ticketing</h1></div>";
         echo "<div id='menu' style='background-color:#FFD700;float:left;'>";
         echo "<form name='tickets' action='confirmation.php' method='post'>";
 
+        $result = queryMysql("SELECT start, destination, date, time, $class FROM $flighttable WHERE start='$start' AND destination='$destination' AND date='$date' AND time='$time'");
+        $rows = mysql_num_rows($result);
+        if ($rows > 0) {
+            $row = mysql_fetch_row($result);
+            $price = $row[4];
+            $childprice = $price / 2;
+        } else {
+            $price = 0;
+            $childprice = 0;
+        }
+
         echo "<br/>Adult (12+):<br/>";
-        echo "<select name='adult' size='1' onclick='calculatePrice()'>";
+        echo "<select name='adult' id='adult' size='1' onclick='calculatePrice($price, $childprice)'>";
         for ($j = 0; $j < 10; ++$j) {
             echo "<option value='$j'>$j</option>";
         }
         echo "</select><br/><br/>";
 
         echo "Child (2-11):<br/>";
-        echo "<select name='child' size='1'>";
+        echo "<select name='child' id='child' size='1' onclick='calculatePrice($price, $childprice)'>";
         for ($j = 0; $j < 10; ++$j) {
             echo "<option value='$j'>$j</option>";
         }
         echo "</select><br/><br/>";
 
         echo "Infant (0-1):<br/>";
-        echo "<select name='adult' size='1'>";
+        echo "<select name='infant' id='infant' size='1' onclick='calculatePrice($price, $childprice)'>";
         for ($j = 0; $j < 10; ++$j) {
             echo "<option value='$j'>$j</option>";
         }
         echo "</select></br></br>";
 
+        echo "<span name='pricecalculation' id='pricecalculation'></span>";
+
+        echo "<input type='submit' value='Book Flight'/>";
+
         echo "</form>";
         echo "</div>";
 
         echo "<div id='flights' style='background-color:#EEE;'>";
-        $result = queryMysql("SELECT start, destination, date, time, $class FROM $flighttable WHERE start='$start' AND destination='$destination' AND date='$date' AND time='$time'");
-        $rows = mysql_num_rows($result);
         if ($rows > 0) {
             echo "<table><thead><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Class</th><th>Price</th></thead><tbody>";
             $row = mysql_fetch_row($result);
