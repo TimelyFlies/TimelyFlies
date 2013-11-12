@@ -58,8 +58,6 @@ if ($loggedin) {
         echo "<div id='flights' style='background-color:#EEE;'>";
         if ($rows > 0) {
             echo "<table><thead><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Class</th><th>Price</th></thead><tbody>";
-            $row = mysql_fetch_row($result);
-            $price = $row[4];
             echo "<tr><td>$start</td><td>$destination</td><td>$date</td><td>$time</td><td>$class</td><td>$$price<td/></tr>";
             echo "</tbody></table>";
         } else {
