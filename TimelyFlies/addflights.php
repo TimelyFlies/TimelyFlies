@@ -3,12 +3,12 @@
 
     if ($is_admin) {
         if (isset($_POST['start'])) {
-            $start = sanitizeString($_POST['start']);
-            $destination = sanitizeString($_POST['destination']);
-            $date = sanitizeString($_POST['date']);
-            $time = sanitizeString($_POST['time']);
-            $economy = sanitizeString($_POST['economy']);
-            $business = sanitizeString($_POST['business']);
+            $start = trim(sanitizeString($_POST['start']));
+            $destination = trim(sanitizeString($_POST['destination']));
+            $date = trim(sanitizeString($_POST['date']));
+            $time = trim(sanitizeString($_POST['time']));
+            $economy = trim(sanitizeString($_POST['economy']));
+            $business = trim(sanitizeString($_POST['business']));
             $flighttable = sanitizeString($_POST['flighttable']);
             $query = "INSERT INTO $flighttable VALUES('$start', '$destination', '$date', '$time', '$economy', '$business')";
             queryMysql($query);
