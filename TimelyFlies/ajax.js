@@ -57,8 +57,8 @@ function checkDate(date) {
         request = new ajaxRequest();
         request.open("POST", "checkdate.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        request.setRequestHeader("Content-length", params.length);
-        request.setRequestHeader("Connection", "close");
+        //request.setRequestHeader("Content-length", params.length);
+        //request.setRequestHeader("Connection", "close");
 
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
@@ -73,24 +73,95 @@ function checkDate(date) {
     }
 }
 
-function calculatePrice(price, childprice) {
-    var adults = O('adult');
-    adults = adults.options[adults.selectedIndex].value;
-    var children = O('child');
-    children = children.options[children.selectedIndex].value;
-    var infants = O('infant');
-    infants = infants.options[infants.selectedIndex].value;
-    var adultTotal = adults * price;
-    var childTotal = children * childprice;
-    var total = adultTotal + childTotal;
-    var priceText = "Adults:<br/>";
-    priceText = priceText.concat(adults + " x $" + price + " = $" + adultTotal + "<br/>");
-    priceText = priceText.concat("Children:<br/>");
-    priceText = priceText.concat(children + " x $" + childprice + " = $" + childTotal + "<br/>");
-    priceText = priceText.concat("Infants:<br/>");
-    priceText = priceText.concat(infants + " x $0 = $0<br/><br/>");
-    priceText = priceText.concat("Total = $" + total + "</br>");
-    O('pricecalculation').innerHTML = priceText;
+function checkTime(time) {
+    if (time.value == '') {
+        O('timeinfo').innerHTML = '';
+        return;
+    } else {
+        var params = 'time=' + time.value;
+        request = new ajaxRequest();
+        request.open("POST", "checktime.php", true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //request.setRequestHeader("Content-length", params.length);
+        //request.setRequestHeader("Connection", "close");
+
+        request.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    if (this.responseText != null) {
+                        O('timeinfo').innerHTML = this.responseText;
+                    }
+                }
+            }
+        };
+        request.send(params);
+    }
+}
+
+function checkPrice(price, fclass) {
+    if (price.value == '') {
+        if (fclass == 0) {
+            O('economyinfo').innerHTML = '';
+        } else {
+            O('businessinfo').innerHTML = '';
+        }
+        return;
+    } else {
+        var params = 'price=' + price.value;
+        request = new ajaxRequest();
+        request.open("POST", "checkprice.php", true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //request.setRequestHeader("Content-length", params.length);
+        //request.setRequestHeader("Connection", "close");
+
+        request.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    if (this.responseText != null) {
+                        if (fclass == 0) {
+                            O('economyinfo').innerHTML = this.responseText;
+                        } else {
+                            O('businessinfo').innerHTML = this.responseText;
+                        }
+                    }
+                }
+            }
+        };
+        request.send(params);
+    }
+}
+
+function checkCity(city, cclass) {
+    if (city.value == '') {
+        if (cclass == 0) {
+            O('startinfo').innerHTML = '';
+        } else {
+            O('destinfo').innerHTML = '';
+        }
+        return;
+    } else {
+        var params = 'city=' + city.value;
+        request = new ajaxRequest();
+        request.open("POST", "checkcity.php", true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //request.setRequestHeader("Content-length", params.length);
+        //request.setRequestHeader("Connection", "close");
+
+        request.onreadystatechange = function() {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    if (this.responseText != null) {
+                        if (cclass == 0) {
+                            O('startinfo').innerHTML = this.responseText;
+                        } else {
+                            O('destinfo').innerHTML = this.responseText;
+                        }
+                    }
+                }
+            }
+        };
+        request.send(params);
+    }
 }
 
 function ajaxRequest() {

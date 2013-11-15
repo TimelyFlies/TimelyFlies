@@ -12,6 +12,7 @@ if ($loggedin) {
 
         echo "<title>$appname $userstr</title>";
         echo "<script src='ajax.js'></script>";
+        echo "<script src='functions.js'></script>";
         echo "</head><body><div id='container'><div id='header' style='background-color:#FFA500;'><h1 style='margin-bottom:0;'>Ticketing</h1></div>";
         echo "<div id='menu' style='background-color:#FFD700;float:left;'>";
         echo "<form name='tickets' action='confirmation.php' method='post'>";

@@ -9,18 +9,27 @@
 
     if (isset($_SESSION['user'])) {
         $user = $_SESSION['user'];
+        $is_admin = $_SESSION['is_admin'];
         $loggedin = TRUE;
         $userstr = "($user)";
     } else {
-        $loggedin = false;
+        $loggedin = FALSE;
+        $is_admin = FALSE;
     }
 
     echo "<title>$appname $userstr</title>" .
         "<link rel='stylesheet' href='styles.css' type='text/css'/>" .
         "</head><body><div class='appname'>$appname $userstr</div>";
 
-    if ($loggedin) {
+    if ($loggedin && !$is_admin) {
         echo "<br/><ul class='menu'>" .
+            "<li><a href='browse.php'>Browse Flights</a></li>" .
+            "<li><a href='booking.php'>Book Flight</a></li>" .
+            "<li><a href='upload.php'>Upload Documents</a></li>" .
+            "<li><a href='logout.php'>Log Out</a></li></ul><br/>";
+    } else if ($loggedin && $is_admin) {
+        echo "<br/><ul class='menu'>" .
+            "<li><a href='addflights.php'>Add Flights</a></li>" .
             "<li><a href='browse.php'>Browse Flights</a></li>" .
             "<li><a href='booking.php'>Book Flight</a></li>" .
             "<li><a href='upload.php'>Upload Documents</a></li>" .
