@@ -33,8 +33,8 @@ function validateFlight(form) {
 
 function areCitiesValid(start, destination) {
     var fail = '';
-    if (/[^a-zA-Z\s]/.test(start) || /[^a-zA-Z\s]/.test(destination)) {
-        fail = "City name may only contain spaces, A-Z, and a-z.\n";
+    if (/[^a-zA-Z\s\.]/.test(start) || /[^a-zA-Z\s\.]/.test(destination)) {
+        fail = "City name may only contain spaces, periods, A-Z, and a-z.\n";
     }
     return fail;
 }
