@@ -32,6 +32,7 @@
         echo "               <span id='businessinfo'></span><br/>";
         echo "               <input type='submit' value='Add Flight'/></pre>";
         echo "</form>";
+        echo "</div></body></html>";
     } else {
         die("You are not authorized to view this page.");
     }
