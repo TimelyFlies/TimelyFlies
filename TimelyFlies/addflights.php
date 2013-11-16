@@ -14,7 +14,7 @@
             queryMysql($query);
         }
 
-        echo "</head><body><div id='container'><div id='header' class='header'><h1>Add Flight</h1></div><pre>";
+        echo "<div id='container'><div id='header' class='header'><h1>Add Flight</h1></div><pre>";
         echo "<form name='addflight' action='addflights.php' method='post' onSubmit='return validateFlight(this)'>";
         echo "<label>      Domestic <input type='radio' name='flighttable' value='domestic_flights' checked/></label><br/>";
         echo "<label> International <input type='radio' name='flighttable' value='international_flights'/></label><br/><br/>";

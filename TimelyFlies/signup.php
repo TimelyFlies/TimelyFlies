@@ -1,10 +1,7 @@
 <?php
     require_once 'header.php';
 
-echo <<<_END
-</head><body>
-<div class='notice'><h3>Please enter your details to sign up:</h3>
-_END;
+echo "<div class='notice'><h3>Please enter your details to sign up:</h3>";
 
 $error = $user = $pass = "";
 if (isset($_SESSION['user'])) {
