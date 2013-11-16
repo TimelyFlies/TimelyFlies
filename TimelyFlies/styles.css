@@ -14,6 +14,27 @@
     text-decoration: none;
 }
 
+.menubar {
+    background:#FFD700;
+    float:left;
+}
+
+.header {
+    background:#FFA500;
+}
+
+.header h1 {
+    margin-bottom:0;
+}
+
+.main {
+    background:#EEE;
+}
+
+.notice {
+    margin-left:40px;
+}
+
 .appname {
     text-align :center;
     background :#eb8;

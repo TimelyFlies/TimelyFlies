@@ -2,7 +2,7 @@
     require_once 'header.php';
 
 if (!$loggedin) {
-    echo "<div class='main'><h3>Please enter your details to log in</h3>";
+    echo "<div class='notice'><h3>Please enter your details to log in</h3>";
     $error = $user = $pass = '';
 
     if (isset($_POST['user'])) {

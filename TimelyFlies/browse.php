@@ -3,8 +3,8 @@ require_once 'header.php';
 
 echo "<script src='ajax.js'></script>";
 
-echo "<title>$appname $userstr</title></head><body><div id='container'><div id='header' style='background-color:#FFA500;'><h1 style='margin-bottom:0;'>Browse Flights</h1></div>";
-echo "<div id='menu' style='background-color:#FFD700;float:left;'>";
+echo "<title>$appname $userstr</title></head><body><div id='container'><div id='header' class='header'><h1>Browse Flights</h1></div>";
+echo "<div id='menu' class='menubar'>";
 echo "<form name='browse' action='browse.php' method='post'>";
 echo "<br/>Domestic/International:<br/>";
 echo "<label><input type='radio' name='flighttable' value='domestic_flights' onclick='getStartingCities(this)'/>Domestic</label><br/>";
@@ -19,7 +19,7 @@ echo "<input type='submit' value='Browse Flights'/>";
 echo "</form>";
 echo "</div>";
 
-echo "<div id='flights' style='background-color:#EEE;'>";
+echo "<div id='flights' class='main'>";
 if (isset($_POST['start'])) {
     $start = sanitizeString($_POST['start']);
     $flighttable = sanitizeString($_POST['flighttable']);

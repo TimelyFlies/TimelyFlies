@@ -5,8 +5,8 @@ if ($loggedin) {
     date_default_timezone_set('America/Phoenix');
     echo "<script src='ajax.js'></script>";
 
-    echo "<title>$appname $userstr</title></head><body><div id='container'><div id='header' style='background-color:#FFA500;'><h1 style='margin-bottom:0;'>Book Flights</h1></div>";
-    echo "<div id='menu' style='background-color:#FFD700;float:left;'>";
+    echo "<title>$appname $userstr</title></head><body><div id='container'><div id='header' class='header'><h1>Book Flights</h1></div>";
+    echo "<div id='menu' class='menubar'>";
     echo "<form name='book' action='booking.php' method='post'>";
     echo "<br/>Domestic/International:<br/>";
     echo "<label><input type='radio' name='flighttable' value='domestic_flights' onclick='getStartingCities(this);getDestinations(this)'/>Domestic</label><br/>";
@@ -46,7 +46,7 @@ if ($loggedin) {
     echo "</form>";
     echo "</div>";
 
-    echo "<div id='flights' style='background-color:#EEE;'>";
+    echo "<div id='flights' class='main'>";
     if (isset($_POST['start']) && $errors == "") {
         $start = sanitizeString($_POST['start']);
         $flighttable = sanitizeString($_POST['flighttable']);

@@ -46,7 +46,7 @@ function ajaxRequest() {
 }
 </script>
 </head><body>
-<div class='main'><h3>Please enter your details to sign up:</h3>
+<div class='notice'><h3>Please enter your details to sign up:</h3>
 _END;
 
 $error = $user = $pass = "";

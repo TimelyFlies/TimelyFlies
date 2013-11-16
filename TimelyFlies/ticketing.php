@@ -13,8 +13,8 @@ if ($loggedin) {
         echo "<title>$appname $userstr</title>";
         echo "<script src='ajax.js'></script>";
         echo "<script src='functions.js'></script>";
-        echo "</head><body><div id='container'><div id='header' style='background-color:#FFA500;'><h1 style='margin-bottom:0;'>Ticketing</h1></div>";
-        echo "<div id='menu' style='background-color:#FFD700;float:left;'>";
+        echo "</head><body><div id='container'><div id='header' class='header'><h1>Ticketing</h1></div>";
+        echo "<div id='menu' class='menubar'>";
         echo "<form name='tickets' action='confirmation.php' method='post'>";
 
         $result = queryMysql("SELECT start, destination, date, time, $class FROM $flighttable WHERE start='$start' AND destination='$destination' AND date='$date' AND time='$time'");
@@ -56,7 +56,7 @@ if ($loggedin) {
         echo "</form>";
         echo "</div>";
 
-        echo "<div id='flights' style='background-color:#EEE;'>";
+        echo "<div id='flights' class='main'>";
         if ($rows > 0) {
             echo "<table><thead><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Class</th><th>Price</th></thead><tbody>";
             echo "<tr><td>$start</td><td>$destination</td><td>$date</td><td>$time</td><td>$class</td><td>$$price<td/></tr>";
