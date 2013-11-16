@@ -11,8 +11,6 @@ if ($loggedin) {
         $class = ucfirst(sanitizeString($_POST['class']));
 
         echo "<title>$appname $userstr</title>";
-        echo "<script src='ajax.js'></script>";
-        echo "<script src='functions.js'></script>";
         echo "</head><body><div id='container'><div id='header' class='header'><h1>Ticketing</h1></div>";
         echo "<div id='menu' class='menubar'>";
         echo "<form name='tickets' action='confirmation.php' method='post'>";

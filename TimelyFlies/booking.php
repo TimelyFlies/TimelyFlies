@@ -3,7 +3,6 @@ require_once 'header.php';
 
 if ($loggedin) {
     date_default_timezone_set('America/Phoenix');
-    echo "<script src='ajax.js'></script>";
 
     echo "<title>$appname $userstr</title></head><body><div id='container'><div id='header' class='header'><h1>Book Flights</h1></div>";
     echo "<div id='menu' class='menubar'>";

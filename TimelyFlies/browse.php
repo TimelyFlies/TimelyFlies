@@ -1,8 +1,6 @@
 <?php
 require_once 'header.php';
 
-echo "<script src='ajax.js'></script>";
-
 echo "<title>$appname $userstr</title></head><body><div id='container'><div id='header' class='header'><h1>Browse Flights</h1></div>";
 echo "<div id='menu' class='menubar'>";
 echo "<form name='browse' action='browse.php' method='post'>";

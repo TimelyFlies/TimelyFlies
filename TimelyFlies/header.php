@@ -4,6 +4,8 @@
     session_start();
 
     echo "<!DOCTYPE html>\n<html><head><script src='OSC.js'></script>";
+    echo "<script src='ajax.js'></script>";
+    echo "<script src='functions.js'></script>";
 
     $userstr = '(Guest)';
 

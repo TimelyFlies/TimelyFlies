@@ -14,8 +14,6 @@
             queryMysql($query);
         }
 
-        echo "<script src='ajax.js'></script>";
-        echo "<script src='functions.js'></script>";
         echo "</head><body><div id='container'><div id='header' class='header'><h1>Add Flight</h1></div><pre>";
         echo "<form name='addflight' action='addflights.php' method='post' onSubmit='return validateFlight(this)'>";
         echo "<label>      Domestic <input type='radio' name='flighttable' value='domestic_flights' checked/></label><br/>";
