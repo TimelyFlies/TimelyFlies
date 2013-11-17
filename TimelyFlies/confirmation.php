@@ -4,8 +4,7 @@ require_once 'header.php';
 if ($loggedin)
 {
     if (isset($_POST['start']) && isset($_POST['destination']) && isset($_POST['date']) && isset($_POST['time'])
-        && isset($_POST['class']) && isset($_POST['adult']) && isset($_POST['child']) && isset($_POST['infant']))
-        // && isset($_POST['price'])
+        && isset($_POST['class']) && isset($_POST['adult']) && isset($_POST['child']) && isset($_POST['infant']) && isset($_POST['price']))
     {
         $start = sanitizeString($_POST['start']);
         $destination = sanitizeString($_POST['destination']);
@@ -16,7 +15,9 @@ if ($loggedin)
         $children = sanitizeString($_POST['child']);
         $infants = sanitizeString($_POST['infant']);
         $price = sanitizeString($_POST['price']);
-        $totalprice = ($price * $adults) + ((1/2 * $price) * $child));
+        $childprice = .5*$price;
+        $totalprice = $price*$adults + $childprice*$children;
+        
         echo "<div class='header'><h1>Flight Confirmation</h1></div>";
         echo "<div class='main'>";
         echo "<table><tbody><tr><td><b>Starting City: </b></td><td>$start</td></tr>";
@@ -24,10 +25,11 @@ if ($loggedin)
         echo "<tr><td><b>Date: </b></td><td>$date</td></tr>";
         echo "<tr><td><b>Time: </b></td><td>$time</td></tr>";
         echo "<tr><td><b>Class: </b></td><td>$class</td></tr>";
-        echo "<tr><td><b>Adults: </b></td><td>$adults</td></tr>";
-        echo "<tr><td><b>Children: </b></td><td>$children</td></tr>";
-        echo "<tr><td><b>Infants: </b></td><td>$infants</td></tr>";
-        echo "<tr><td><b>Price: </b></td><td>$$totalprice</td></tr>";
+        echo "<tr><td><b>Adults: </b></td><td>$adults ($$price each)</td></tr>";
+        echo "<tr><td><b>Children: </b></td><td>$children ($$childprice each)</td></tr>";
+        echo "<tr><td><b>Infants: </b></td><td>$infants (fly free)</td></tr>";
+        echo "<tr><td><b>Total Price: </b></td><td>$$totalprice</td></tr>";
+        //echo "<tr><td><b>Price: </b></td><td>$$price</td></tr>";
         echo "</tbody></table></div></body></html>";
     }
     else
