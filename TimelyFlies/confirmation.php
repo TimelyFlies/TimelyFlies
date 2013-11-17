@@ -25,7 +25,7 @@ if ($loggedin)
         echo "<tr><td><b>Adults: </b></td><td>$adults</td></tr>";
         echo "<tr><td><b>Children: </b></td><td>$children</td></tr>";
         echo "<tr><td><b>Infants: </b></td><td>$infants</td></tr>";
-        echo "<tr><td><b>Price: </b></td><td>$price</td></tr>";
+        echo "<tr><td><b>Price: $</b></td><td>$price</td></tr>";
         echo "</tbody></table></div></body></html>";
     }
     else
