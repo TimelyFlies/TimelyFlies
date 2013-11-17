@@ -17,7 +17,7 @@ if ($loggedin)
         $infants = sanitizeString($_POST['infant']);
         //$price = sanitizeString($_POST['price']);
         echo "<div class='header'><h1>Flight Confirmation</h1></div>";
-        echo "<div class='main'>";
+        //echo "<div class='main'>";
         echo "<table><tbody><tr><td><b>Starting City: </b></td><td>$start</td></tr>";
         echo "<tr><td><b>Destination: </b></td><td>$destination</td></tr>";
         echo "<tr><td><b>Date: </b></td><td>$date</td></tr>";
