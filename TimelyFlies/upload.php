@@ -1,5 +1,7 @@
 <?php
-  echo "<form action='upload_file.php' method='post'";
+require_once 'header.php';
+
+  echo "<form action='uploader.php' method='post'";
   echo "enctype='multipart/form-data'>";
   echo "<label for='file'>Filename:</label>";
   echo "<input type='file' name='file' id='file'><br>";
