@@ -47,13 +47,12 @@ if ($loggedin) {
         echo "</select></br></br>";
 
         echo "<span name='pricecalculation' id='pricecalculation'></span>";
-
         echo "<input type='hidden' name='start' value='$start'/>";
         echo "<input type='hidden' name='destination' value='$destination'/>";
         echo "<input type='hidden' name='date' value='$date'/>";
         echo "<input type='hidden' name='time' value='$time'/>";
         echo "<input type='hidden' name='class' value='$class'/>";
-        echo "<input type='hidden' name='price' value='$price'/>";
+        //echo "<input type='hidden' name='price' value='$totalprice'/>";
 
         echo "<input type='submit' value='Book Flight'/>";
 
