@@ -14,7 +14,7 @@ if ($loggedin)
         $adults = sanitizeString($_POST['adult']);
         $children = sanitizeString($_POST['child']);
         $infants = sanitizeString($_POST['infant']);
-        //$price = sanitizeString($_POST['price']);
+        //DG: pull or calculate price here?
         echo "<div class='header'><h1>Flight Confirmation</h1></div>";
         echo "<div class='main'>";
         echo "<table><tbody><tr><td><b>Starting City: </b></td><td>$start</td></tr>";
