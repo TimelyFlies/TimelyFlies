@@ -19,6 +19,9 @@ if (isset($_POST['user'])) {
         } else {
             $hashedpass = sha1($pass);
             queryMysql("INSERT INTO users VALUES('$user', '$hashedpass', 0)");
+            if (!mkdir("$user")) {
+                echo "User directory creation failed.<br/>";
+            }
             die("<h4>Account created.</h4>Please log in.<br/><br/>");
         }
     }
