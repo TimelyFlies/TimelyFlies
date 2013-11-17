@@ -77,3 +77,10 @@
 .pre {
     font-family: helvetica;
 }
+
+table, th, td, tr, thead{
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+
