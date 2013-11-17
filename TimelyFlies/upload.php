@@ -1,13 +1,8 @@
 <?php
-  if ($_FILES["file"]["error"] > 0)
-  {
-    echo "Error: " . $_FILES["file"]["error"] . "<br>";
-  }
-  else
-  {
-    echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-    echo "Type: " . $_FILES["file"]["type"] . "<br>";
-    echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-    echo "Stored in: " . $_FILES["file"]["tmp_name"];
-  }
+  echo "<form action='upload_file.php' method='post'";
+  echo "enctype='multipart/form-data'>";
+  echo "<label for='file'>Filename:</label>";
+  echo "<input type='file' name='file' id='file'><br>";
+  echo  "input type='submit' name='submit' value='Submit'>";
+  echo "</form>";
 ?>
