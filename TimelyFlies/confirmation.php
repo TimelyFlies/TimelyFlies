@@ -4,7 +4,7 @@ require_once 'header.php';
 if ($loggedin)
 {
     if (isset($_POST['start']) && isset($_POST['destination']) && isset($_POST['date']) && isset($_POST['time'])
-        && isset($_POST['class']) && isset($_POST['adult']) && isset($_POST['child']) && isset($_POST['infant']) && isset($_POST['price']))
+        && isset($_POST['class']) && isset($_POST['adult']) && isset($_POST['child']) && isset($_POST['infant']))
     {
         $start = sanitizeString($_POST['start']);
         $destination = sanitizeString($_POST['destination']);
