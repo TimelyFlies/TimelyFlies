@@ -1,9 +1,11 @@
 <?php
 require_once 'header.php';
 
-if ($loggedin) {
+if ($loggedin)
+{
     if (isset($_POST['start']) && isset($_POST['destination']) && isset($_POST['date']) && isset($_POST['time'])
-        && isset($_POST['class']) && isset($_POST['adult']) && isset($_POST['child']) && isset($_POST['infant'])) {
+        && isset($_POST['class']) && isset($_POST['adult']) && isset($_POST['child']) && isset($_POST['infant']) && isset($_POST['price']))
+    {
         $start = sanitizeString($_POST['start']);
         $destination = sanitizeString($_POST['destination']);
         $date = sanitizeString($_POST['date']);
@@ -12,6 +14,7 @@ if ($loggedin) {
         $adults = sanitizeString($_POST['adult']);
         $children = sanitizeString($_POST['child']);
         $infants = sanitizeString($_POST['infant']);
+        $price = sanitizeString($_POST['price']);
         echo "<div class='header'><h1>Flight Confirmation</h1></div>";
         echo "<div class='main'>";
         echo "<table><tbody><tr><td><b>Starting City: </b></td><td>$start</td></tr>";
@@ -22,11 +25,16 @@ if ($loggedin) {
         echo "<tr><td><b>Adults: </b></td><td>$adults</td></tr>";
         echo "<tr><td><b>Children: </b></td><td>$children</td></tr>";
         echo "<tr><td><b>Infants: </b></td><td>$infants</td></tr>";
+        echo "<tr><td><b>Price: </b></td><td>$price</td></tr>";
         echo "</tbody></table></div></body></html>";
-    } else {
+    }
+    else
+    {
         die("Some flight information is missing. Please <a href='booking.php'>click here</a> to book your flight again.");
     }
-} else {
+}
+else
+{
     die("You are not logged in. Please <a href='login.php'>click here</a> to log in.");
 }
 ?>
