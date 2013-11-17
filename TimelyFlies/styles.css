@@ -1,8 +1,9 @@
 .menu li, .button {
     display           :inline;
+    font-family :helvetica;
     padding           :4px 6px;
     border            :1px solid #777;
-    background        :#ddd;
+    background        :#ADC2FF;
      color             :#d04;
     margin-right      :8px;
      border-radius     :5px;
@@ -11,51 +12,65 @@
      box-shadow        :2px 2px 2px #888; }
 
 .menu a {
+    font-family:helvetica;
     text-decoration: none;
 }
 
 .menubar {
-    background:#FFD700;
+    font-family: helvetica;
+    background:#AEAEFF;
     float:left;
 }
 
 .header {
-    background:#FFA500;
+    font-family: helvetica;
+    background:#6666FF;
+    margin-bottom:3;
+    font-size: 20pt;
 }
 
 .header h1 {
-    margin-bottom:0;
+    font-family: helvetica;
+    margin-bottom:3;
+    font-size: 20pt;
 }
 
 .main {
+    font-family: helvetica;
     background:#EEE;
+    padding-left: 250px;
 }
 
 .notice {
+    font-family: helvetica;
     margin-left:40px;
 }
 
 .appname {
     text-align :center;
-    background :#eb8;
-    color      :#40d;
+    background :#0000CD;
+    color      :#FFFFFF;
     font-family:helvetica;
     font-size  :20pt;
     padding    :4px; }
 
 .taken, .error {
+    font-family: helvetica;
     color:red; }
 
 .available {
+    font-family: helvetica;
     color:green; }
 
 .info {
+    font-family: helvetica;
     background :lightgreen;
     color      :blue;
-     border     :1px solid green;
-     padding    :5px 10px;
+    border     :1px solid green;
+    padding    :5px 10px;
     margin-left:40px; }
 
 .fieldname {
+    font-family: helvetica;
     float:left;
     width:120px; }
