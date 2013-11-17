@@ -1,7 +1,7 @@
 <?php
 require_once 'header.php';
 
-echo "<div id='container'><div id='header' class='header'><h1>Browse Flights</h1></div>";
+echo "<div id='container'><div id='header' class='header'><h2>Browse Flights</h2></div>";
 echo "<div id='menu' class='menubar'>";
 echo "<form name='browse' action='browse.php' method='post'>";
 echo "<br/>Domestic/International:<br/>";
