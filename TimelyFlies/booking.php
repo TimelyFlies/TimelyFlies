@@ -80,6 +80,6 @@ if ($loggedin) {
     }
     echo "</div></div></body></html>";
 } else {
-    die("You must be logged in to view this page.");
+    die("You are not logged in. Please <a href='login.php'>click here</a> to log in.");
 }
 ?>
