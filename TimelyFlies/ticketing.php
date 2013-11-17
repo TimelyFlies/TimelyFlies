@@ -52,7 +52,7 @@ if ($loggedin) {
         echo "<input type='hidden' name='date' value='$date'/>";
         echo "<input type='hidden' name='time' value='$time'/>";
         echo "<input type='hidden' name='class' value='$class'/>";
-        //echo "<input type='hidden' name='price' value='$totalprice'/>";
+        echo "<input type='hidden' name='price' value='$price'/>";
 
         echo "<input type='submit' value='Book Flight'/>";
 
