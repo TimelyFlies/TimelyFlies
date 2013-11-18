@@ -45,7 +45,7 @@ body
 .main {
     font-family: helvetica;
     background:#EEE;
-    opacity: .5;
+    background-color:rgba(255,0,0,0.5);
 }
 
 .notice {
