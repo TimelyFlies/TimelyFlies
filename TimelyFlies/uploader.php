@@ -9,29 +9,44 @@ if ($loggedin)
 	{
 	        $user = sanitizeString($_SESSION['user']);
 	        $path .= $user . "/";
-		if ($_FILES["file"]["error"] > 0)
+	        $temp = explode(".", $_FILES["file"]["name"]);
+	        $extension = end($temp);
+		$allowedextensions = array("gif", "jpeg", "jpg", "png", "pdf");
+		$allowedsize = 100000;
+		if ($_FILES["file"]["size"] < $allowedsize && in_array($extension, $allowedextensions))
 		{
-			echo "Error: " . $_FILES["file"]["error"] . "<br/>";
+			if ($_FILES["file"]["error"] > 0 )
+			{
+				echo "Error: " . $_FILES["file"]["error"] . "<br/>";
+			}
+			else
+			{
+				//echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+				//echo "Type: " . $_FILES["file"]["type"] . "<br>";
+				//echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+				//echo "Temp file: " . $_FILES["file"]["tmp_name"];
+			}
+			if (file_exists("$path" . $_FILES["file"]["name"]))
+			{
+			  echo $_FILES["file"]["name"] . " already exists. ";
+			  echo "<br/>";
+			  echo "Please <a href='upload.php'>click here</a> to return to the upload page.";
+			}
+			else
+			{
+			  move_uploaded_file($_FILES["file"]["tmp_name"], "$path" . $_FILES["file"]["name"]);
+			  echo "Your file was successfully uploaded to: " . "$path" . $_FILES["file"]["name"];
+			  echo "<br/>";
+			  echo "Please <a href='upload.php'>click here</a> to return to the upload page.";
+			}
 		}
-		else
+		if ($_FILES["file"]["size"] >= $allowedsize)
 		{
-			//echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-			//echo "Type: " . $_FILES["file"]["type"] . "<br>";
-			//echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-			//echo "Temp file: " . $_FILES["file"]["tmp_name"];
+			echo "Your file is too large. Please <a href='upload.php'>click here</a> to return to the upload page.";
 		}
-		if (file_exists("$path" . $_FILES["file"]["name"]))
+		if (!in_array($extension, $allowedextensions))
 		{
-		  echo $_FILES["file"]["name"] . " already exists. ";
-		  echo "<br/>";
-		  echo "Please <a href='upload.php'>click here</a> to return to the upload page.";
-		}
-		else
-		{
-		  move_uploaded_file($_FILES["file"]["tmp_name"], "$path" . $_FILES["file"]["name"]);
-		  echo "Your file was successfully uploaded to: " . "$path" . $_FILES["file"]["name"];
-		  echo "<br/>";
-		  echo "Please <a href='upload.php'>click here</a> to return to the upload page.";
+			echo "That file type is invalid. Please upload an image or PDF. Please <a href='upload.php'>click here</a> to return to the upload page.";
 		}
 	}
 	else
