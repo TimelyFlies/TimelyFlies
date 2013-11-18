@@ -1,6 +1,7 @@
 body
 {
-	/*background-image:url('http://crispme.com/wp-content/uploads/Panorama_1920x1440.jpg?pass');*/
+	background-image:url('http://i.imgur.com/l24Wmls.jpg') no-repeat center center fixed; 
+  	background-size: cover;
 	background-color: C9C9FF;
 }
 
@@ -57,7 +58,9 @@ body
     color      :#FFFFFF;
     font-family:helvetica;
     font-size  :20pt;
-    padding    :4px; }
+    padding    :4px;
+    font-weight: bold;
+    }
 
 .taken, .error {
     font-family: helvetica;
