@@ -29,8 +29,14 @@ if ($loggedin)
         echo "<tr><td><b>Children: </b></td><td>$children ($$childprice each)</td></tr>";
         echo "<tr><td><b>Infants: </b></td><td>$infants (fly free)</td></tr>";
         echo "<tr><td><b>Total Price: </b></td><td>$$totalprice</td></tr>";
-        //echo "<tr><td><b>Price: </b></td><td>$$price</td></tr>";
-        echo "</tbody></table></div></body></html>";
+        echo "</tbody></table></div>";
+        echo "<div class = 'printbutton'>";
+        echo "<style type='text/css' media='print'>
+            .printbutton {
+            visibility: hidden;
+            display: none; }
+            </style>" . "<input type='button' onClick='window.print()' value = 'Print this page'/>";
+        echo "</div></body></html>";
     }
     else
     {
