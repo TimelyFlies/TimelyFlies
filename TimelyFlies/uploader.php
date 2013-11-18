@@ -46,7 +46,16 @@ if ($loggedin)
 		}
 		if (!in_array($extension, $allowedextensions))
 		{
-			echo "That file type is invalid. Please upload an image or PDF. Please <a href='upload.php'>click here</a> to return to the upload page.";
+			echo "That file type is invalid. Permitted extensions are ";
+			$size = count($allowedextensions);
+			
+			for($i = 0; $i < $size-1; $i++)
+			{
+			  	echo "$allowedextensions[$i], ";
+			}
+			$lastelement = $size - 1;
+			echo "and $allowedextensions[$lastelement]. ";
+			echo "Please <a href='upload.php'>click here</a> to return to the upload page.";
 		}
 	}
 	else
