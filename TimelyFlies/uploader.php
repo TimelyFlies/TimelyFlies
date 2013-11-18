@@ -12,7 +12,7 @@ if ($loggedin)
 	        $temp = explode(".", $_FILES["file"]["name"]);
 	        $extension = end($temp);
 		$allowedextensions = array("gif", "jpeg", "jpg", "png", "pdf");
-		$allowedsize = 100000;
+		$allowedsize = 1050000; //approx 1 mb
 		if ($_FILES["file"]["size"] < $allowedsize && in_array($extension, $allowedextensions))
 		{
 			if ($_FILES["file"]["error"] > 0 )
