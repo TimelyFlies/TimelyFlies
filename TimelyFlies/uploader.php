@@ -11,7 +11,7 @@ if ($loggedin)
 	        $path .= $user . "/";
 		if ($_FILES["file"]["error"] > 0)
 		{
-			echo "Error: " . $_FILES["file"]["error"] . "<br>";
+			echo "Error: " . $_FILES["file"]["error"] . "<br/>";
 		}
 		else
 		{
@@ -23,14 +23,14 @@ if ($loggedin)
 		if (file_exists("$path" . $_FILES["file"]["name"]))
 		{
 		  echo $_FILES["file"]["name"] . " already exists. ";
-		  echo "<br>";
+		  echo "<br/>";
 		  echo "Please <a href='upload.php'>click here</a> to return to the upload page.";
 		}
 		else
 		{
 		  move_uploaded_file($_FILES["file"]["tmp_name"], "$path" . $_FILES["file"]["name"]);
 		  echo "Your file was successfully uploaded to: " . "$path" . $_FILES["file"]["name"];
-		  echo "<br>";
+		  echo "<br/>";
 		  echo "Please <a href='upload.php'>click here</a> to return to the upload page.";
 		}
 	}
@@ -38,6 +38,7 @@ if ($loggedin)
 	{
 		echo "Error with user account";
 	}
+    echo "</div></body></html>";
 }
 else
 {
