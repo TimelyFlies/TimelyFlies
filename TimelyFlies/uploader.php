@@ -1,10 +1,11 @@
 <?php
+echo "Test page for uploader";
 if ($loggedin)
 {
-	if (isset($_POST['user']))
+	if (isset($_SESSION['user']))
 	{
-	        $user = sanitizeString($_POST['user']);
-		echo "Test page for uploader";
+        $user = sanitizeString($_SESSION['user']);
+        echo "User: $user";
 		if ($_FILES["file"]["error"] > 0)
 		{
 			echo "Error: " . $_FILES["file"]["error"] . "<br>";
