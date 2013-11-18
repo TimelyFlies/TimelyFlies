@@ -6,10 +6,10 @@ if ($loggedin)
 {
 	if (isset($_SESSION['user']))
 	{
-        $user = sanitizeString($_SESSION['user']);
-        echo "User: $user";
-        $path .= $user . "/";
-        echo "<br>$path</br>";
+	        $user = sanitizeString($_SESSION['user']);
+	        echo "User: $user";
+	        $path .= $user . "/";
+	        echo "<br>$path</br>";
 		if ($_FILES["file"]["error"] > 0)
 		{
 			echo "Error: " . $_FILES["file"]["error"] . "<br>";
