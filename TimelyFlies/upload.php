@@ -31,7 +31,7 @@
 	        		{
 		            		if ($entry != "." && $entry != "..")
 		            		{
-		            			$filepath = $path . "/";
+		            			$filepath = $path;
 		            			$filepath .= $entry;
 		                		echo "<a href='$filepath'>$entry</a>";
 		                		echo "<br><br/>";
