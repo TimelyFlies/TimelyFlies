@@ -23,6 +23,8 @@ if ($loggedin)
 		if (file_exists("$path" . $_FILES["file"]["name"]))
 		{
 		  echo $_FILES["file"]["name"] . " already exists. ";
+		  echo "<br>";
+		  echo "Please <a href='upload.php'>click here</a> to return to the upload page.";
 		}
 		else
 		{
