@@ -1,16 +1,14 @@
 <?php
 require_once 'header.php';
 echo "Test page for uploader";
-$path = "/opt/bitnami/apache2/htdocs/TimelyFlies";
+$path = "/opt/bitnami/apache2/htdocs/TimelyFlies/";
 if ($loggedin)
 {
 	if (isset($_SESSION['user']))
 	{
         $user = sanitizeString($_SESSION['user']);
         echo "User: $user";
-        $path .= "/";
-        $path .= $user;
-        $path .= "/"
+        $path .= $user . "/";
 		if ($_FILES["file"]["error"] > 0)
 		{
 			echo "Error: " . $_FILES["file"]["error"] . "<br>";
