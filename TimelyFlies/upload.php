@@ -35,7 +35,7 @@
 		            			$filepath .= $entry;
 		                		echo "<a href='$filepath'>$entry</a>";
 		                		echo "<br><br/>";
-		            		}
+		            		} 
 				}
 	        		closedir($handle);
 	   		}
