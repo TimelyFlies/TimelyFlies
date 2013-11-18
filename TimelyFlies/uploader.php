@@ -1,9 +1,9 @@
 <?php
 require_once 'header.php';
 $path = "/opt/bitnami/apache2/htdocs/TimelyFlies/";
+echo "<div class='header'><h1>Upload Confirmation</h1></div>";
 if ($loggedin)
 {
-	echo "<div class='header'><h1>Upload Confirmation</h1></div>";
 	echo "<div class='main'>";
 	if (isset($_SESSION['user']))
 	{
