@@ -28,7 +28,8 @@ if ($loggedin)
 		{
 		  move_uploaded_file($_FILES["file"]["tmp_name"], "$path" . $_FILES["file"]["name"]);
 		  echo "Your file was successfully uploaded to: " . "$path" . $_FILES["file"]["name"];
-		  echo "Please <a href='upload.php'>click here</a> to return to the upload page."
+		  echo "<br>";
+		  echo "Please <a href='upload.php'>click here</a> to return to the upload page.";
 		}
 	}
 	else
