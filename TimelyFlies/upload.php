@@ -25,9 +25,8 @@ if ($loggedin) {
         if ($handle = opendir("$path")) {
             while (false !== ($entry = readdir($handle))) {
                 if ($entry != "." && $entry != "..") {
-                    $filepath = $path . "/";
-                    $filepath .= $entry;
-                    echo "<a href='$filepath'>$entry</a>";
+                    $filepath = "$user/$entry";
+                    echo "<img src='$filepath'>$entry</img>";
                     echo "<br/><br/>";
                 }
             }
