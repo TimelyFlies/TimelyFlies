@@ -45,6 +45,7 @@ body
 .main {
     font-family: helvetica;
     background:#EEE;
+    opacity: .5;
 }
 
 .notice {
@@ -59,7 +60,7 @@ body
     font-family:helvetica;
     font-size  :20pt;
     padding    :4px;
-    font-weight: bold;
+    font-style: italic;
     }
 
 .taken, .error {
