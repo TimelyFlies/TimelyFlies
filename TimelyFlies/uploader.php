@@ -33,4 +33,8 @@ if ($loggedin)
 		echo "Error with user account";
 	}
 }
+else
+{
+	die("You are not logged in. Please <a href='login.php'>click here</a> to log in.");
+}
 ?>
