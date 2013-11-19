@@ -47,6 +47,8 @@ if ($errors == "") {
 
     if (isset($_POST['flighttable'])) {
         $flighttable = sanitizeString($_POST['flighttable']);
+    } else {
+        $flighttable = "domestic_flights";
     }
 
     if (isset($_POST['class'])){
@@ -61,11 +63,7 @@ if ($errors == "") {
 
     $fromClause = $whereClause = $orderBy = "";
 
-    if ($flighttable == "") {
-        $fromClause = "FROM domestic_flights";
-    } else {
-        $fromClause = "FROM $flighttable";
-    }
+    $fromClause = "FROM $flighttable";
 
     $startSpecified = ($start != "Any" && $start != "");
     $destinationSpecified = ($destination != "Any" && $destination != "");
@@ -111,9 +109,11 @@ if ($errors == "") {
         echo "<table><thead><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Price</th></thead><tbody>";
         for ($j = 0; $j < $rows; ++$j) {
             $row = mysql_fetch_row($result);
+            $start = $row[0];
             $destination = $row[1];
             $date = $row[2];
             $time = $row[3];
+
             if ($loggedin) {
                 echo "<tr><form name='bookflight' action='ticketing.php' method='POST'>";
             } else {
