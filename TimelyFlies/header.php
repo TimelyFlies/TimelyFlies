@@ -26,14 +26,14 @@
     if ($loggedin && !$is_admin) {
         echo "<br/><ul class='menu'>" .
             "<li><a href='browse.php'>Browse Flights</a></li>" .
-            "<li><a href='booking.php'>Book Flight</a></li>" .
+            "<li><a href='myflights.php'>My Flights</a></li>" .
             "<li><a href='upload.php'>Upload Documents</a></li>" .
             "<li><a href='logout.php'>Log Out</a></li></ul><br/>";
     } else if ($loggedin && $is_admin) {
         echo "<br/><ul class='menu'>" .
             "<li><a href='addflights.php'>Add Flights</a></li>" .
             "<li><a href='browse.php'>Browse Flights</a></li>" .
-            "<li><a href='booking.php'>Book Flight</a></li>" .
+            "<li><a href='myflights.php'>My Flights</a></li>" .
             "<li><a href='upload.php'>Upload Documents</a></li>" .
             "<li><a href='logout.php'>Log Out</a></li></ul><br/>";
     } else {

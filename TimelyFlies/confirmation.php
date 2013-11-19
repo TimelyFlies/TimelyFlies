@@ -18,6 +18,9 @@ if ($loggedin)
         $childprice = .5*$price;
         $totalprice = $price*$adults + $childprice*$children;
 
+        $query = "INSERT INTO user_flights VALUES('$user', '$start', '$destination', '$date', '$time', '$adults', '$children', '$infants', '$totalprice')";
+        queryMysql($query);
+
         echo "<div class='header'><h1>Flight Confirmation</h1></div>";
         echo "<div class='main'>";
         echo "<table><tbody><tr><td><b>Starting City: </b></td><td>$start</td></tr>";

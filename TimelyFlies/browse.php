@@ -106,7 +106,7 @@ if ($errors == "") {
 
     $rows = mysql_num_rows($result);
     if ($rows > 0) {
-        echo "<table><thead><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Price</th></thead><tbody>";
+        echo "<table><thead><tr><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Price</th></tr></thead><tbody>";
         for ($j = 0; $j < $rows; ++$j) {
             $row = mysql_fetch_row($result);
             $start = $row[0];
