@@ -36,8 +36,7 @@ if ($loggedin) {
             while (false !== ($entry = readdir($handle))) {
                 if ($entry != "." && $entry != "..") {
                     $filepath = "$user/$entry";
-                    //echo "<img src='$filepath'>$entry</img>";
-                    echo "$entry";
+                    echo "<a href='viewfile.php' file = $entry>$entry</a>";
                     echo "<br/><br/>";
                 }
             }
