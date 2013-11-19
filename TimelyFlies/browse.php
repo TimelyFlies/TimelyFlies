@@ -1,15 +1,31 @@
 <?php
 require_once 'header.php';
 
+$date = $dateError = "";
+if (isset($_POST['date'])) {
+    $date = $_POST['date'];
+    $dateError = isDateValid($_POST['date']);
+}
+
+$errors = "";
+$errors .= $dateError;
+
 echo "<div id='container'><div id='header' class='header'><h2>Browse Flights</h2></div>";
 echo "<div id='menu' class='menubar'>";
-echo "<form name='browse' action='browse.php' method='post'>";
-echo "<br/>Domestic/International:<br/>";
-echo "<label><input type='radio' name='flighttable' value='domestic_flights' onclick='getStartingCities(this)'/>Domestic</label><br/>";
-echo "<label><input type='radio' name='flighttable' value='international_flights' onclick='getStartingCities(this)'/>International</label><br/><br/>";
+echo "<form name='browse' action='browse.php' onsubmit='return validateQuery(this)' method='post'>";
+echo "<b>Refine Results</b><br/><br/>";
+echo "Domestic/International:<br/>";
+echo "<label><input type='radio' name='flighttable' value='domestic_flights' onclick='getStartingCities(this);getDestinations(this);'/>Domestic</label><br/>";
+echo "<label><input type='radio' name='flighttable' value='international_flights' onclick='getStartingCities(this);getDestinations(this);'/>International</label><br/><br/>";
 echo "Starting City:<br/>";
 echo "<select name='start' id='start' size='1'>";
 echo "</select><br/><br/>";
+echo "Destination:<br/>";
+echo "<select name='destination' id='destination' size='1'>";
+echo "</select><br/><br/>";
+echo "Date:<br/>";
+echo "<input type='text' maxlength='10' size='10' value='$date' name='date' id='date' onBlur='checkDate(this)'/><br/>";
+echo "<span id='info'></span><br/>";
 echo "Class:</br>";
 echo "<label><input type='radio' name='class' value='economy' checked/>Economy</label><br/>";
 echo "<label><input type='radio' name='class' value='business'/>Business</label><br/><br/>";
@@ -18,12 +34,77 @@ echo "</form>";
 echo "</div>";
 
 echo "<div id='flights' class='main'>";
-if (isset($_POST['start'])) {
-    $start = sanitizeString($_POST['start']);
-    $flighttable = sanitizeString($_POST['flighttable']);
-    $class = sanitizeString($_POST['class']);
+if ($errors == "") {
+    $start = $destination = $flighttable = $class = $date = "";
 
-    $result = queryMysql("SELECT start, destination, date, time, $class FROM $flighttable WHERE start='$start'");
+    if (isset($_POST['start'])) {
+        $start = sanitizeString($_POST['start']);
+    }
+
+    if (isset($_POST['destination'])) {
+        $destination = sanitizeString($_POST['destination']);
+    }
+
+    if (isset($_POST['flighttable'])) {
+        $flighttable = sanitizeString($_POST['flighttable']);
+    }
+
+    if (isset($_POST['class'])){
+        $class = sanitizeString($_POST['class']);
+    } else {
+        $class = "economy";
+    }
+
+    if (isset($_POST['date'])) {
+        $date = sanitizeString($_POST['date']);
+    }
+
+    $fromClause = $whereClause = $orderBy = "";
+
+    if ($flighttable == "") {
+        $fromClause = "FROM domestic_flights";
+    } else {
+        $fromClause = "FROM $flighttable";
+    }
+
+    $startSpecified = ($start != "Any" && $start != "");
+    $destinationSpecified = ($destination != "Any" && $destination != "");
+    $dateSpecified = ($date != "");
+
+    if ($startSpecified && $destinationSpecified && $dateSpecified) {
+        // start, destination, and date have been specified
+        $whereClause = "WHERE start='$start' AND destination='$destination' AND date='$date' ";
+        $orderBy = "ORDER BY time, $class";
+    } else if ($startSpecified && $destinationSpecified && !$dateSpecified) {
+        // start and destination have been specified
+        $whereClause = "WHERE start='$start' AND destination='$destination' ";
+        $orderBy = "ORDER BY date";
+    } else if ($startSpecified && !$destinationSpecified && $dateSpecified) {
+        // start and date have been specified
+        $whereClause = "WHERE start='$start' AND $date='$date' ";
+        $orderBy = "ORDER BY destination";
+    } else if ($startSpecified && !$destinationSpecified && !$dateSpecified) {
+        // start has been specified
+        $whereClause = "WHERE start='$start' ";
+        $orderBy = "ORDER BY destination, date";
+    } else if (!$startSpecified && $destinationSpecified && $dateSpecified) {
+        // destination and date have been specified
+        $whereClause = "WHERE destination='$destination' AND date='$date' ";
+        $orderBy = "ORDER BY start";
+    } else if (!$startSpecified && $destinationSpecified && !$dateSpecified) {
+        // destination has been specified
+        $whereClause = "WHERE destination='$destination' ";
+        $orderBy = "ORDER BY start, date";
+    } else if (!$startSpecified && !$destinationSpecified && $dateSpecified) {
+        // date has been specified
+        $whereClause = "WHERE date='$date' ";
+        $orderBy = "ORDER BY start, destination";
+    } else {
+        // nothing has been specified
+        $orderBy = "ORDER BY start, destination, date";
+    }
+
+    $result = queryMysql("SELECT start, destination, date, time, $class $fromClause $whereClause $orderBy");
 
     $rows = mysql_num_rows($result);
     if ($rows > 0) {
@@ -52,7 +133,7 @@ if (isset($_POST['start'])) {
         echo "No flights found.";
     }
 } else {
-    echo "Please enter a starting city.";
+    echo $errors;
 }
 echo "</div></div></body></html>";
 ?>

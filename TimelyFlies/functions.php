@@ -33,13 +33,16 @@
 
     function isDateValid($date) {
         $date = sanitizeString($_POST['date']);
+        if ($date == '') {
+            return "";
+        }
 
         $isDateValid = preg_match("/(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])/", "$date");
 
         if ($isDateValid) {
             return "";
         } else {
-            return "<font color='red' size='2'>Date must be in the form 'YYYY-MM-DD'</font>";;
+            return "<font color='red' size='2'>Date must be in the form 'YYYY-MM-DD'</font>";
         }
     }
 ?>

@@ -62,3 +62,18 @@ function arePricesValid(economy, business) {
     }
     return fail;
 }
+
+function validateQuery(form) {
+    date = form.date.value;
+    if (date == '') {
+        return true;
+    } else {
+        var result = isDateValid(date);
+        if (result == '') {
+            return true;
+        } else {
+            alert(result);
+            return false;
+        }
+    }
+}
