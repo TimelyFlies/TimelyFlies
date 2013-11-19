@@ -1,25 +1,11 @@
 <?php
-$file = $_GET['file'];
-echo "Testing page for viewing files";
-echo "<script src='PDF.js'>
+// The location of the PDF file on the server.
+$filename = "/path/to/the/file.pdf";
 
-PDFJS.getDocument('$file').then(function(pdf)
-{
-  pdf.getPage(1).then(function(page)
-  {
-    var scale = 1.5;
-    var viewport = page.getViewport(scale);
-    var canvas = document.getElementById('the-canvas');
-    var context = canvas.getContext('2d');
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
-    var renderContext =
-    {
-      canvasContext: context,
-      viewport: viewport
-    };
-    page.render(renderContext);
-  };
-}
-</script>";
+// Let the browser know that a PDF file is coming.
+header("Content-type: application/pdf");
+header("Content-Length: " . filesize($filename));
+
+// Send the file to the browser.
+readfile($filename);
 ?>
