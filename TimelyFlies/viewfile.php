@@ -3,7 +3,7 @@ $file = $_GET['file'];
 echo "<script src='PDF.js'></script>";
 echo "Testing page for viewing files";
 
-echo "PDFJS.getDocument('$file').then(function(pdf)
+PDFJS.getDocument('$file').then(function(pdf)
 {
   pdf.getPage(1).then(function(page)
   {
@@ -20,5 +20,5 @@ echo "PDFJS.getDocument('$file').then(function(pdf)
     };
     page.render(renderContext);
   };
-}";
+}
 ?>
