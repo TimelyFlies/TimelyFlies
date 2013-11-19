@@ -30,7 +30,9 @@ if (!$loggedin) {
                     $_SESSION['date'] = sanitizeString($_POST['date']);
                     $_SESSION['time'] = sanitizeString($_POST['time']);
                     $_SESSION['class'] = ucfirst(sanitizeString($_POST['class']));
-                    window.location.assign("http://ec2-54-226-171-226.compute-1.amazonaws.com/TimelyFlies/ticketing.php");
+                    echo "<script>" .
+                    "window.location.assign('http://ec2-54-226-171-226.compute-1.amazonaws.com/TimelyFlies/ticketing.php');" .
+                    "</script>";
                 }
                 die("You are now logged in. Please <a href='browse.php'>click here</a> to continue.<br/><br/>");
             }
