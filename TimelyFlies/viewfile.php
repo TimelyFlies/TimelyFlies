@@ -1,11 +1,28 @@
 <?php
-// The location of the PDF file on the server.
-$filename = "/path/to/the/file.pdf";
+require_once 'header.php';
+echo "Testing page version 3";
+$path = "/opt/bitnami/apache2/htdocs/TimelyFlies/";
+$filename = $path . $_GET['file'];
+echo "$filename";
 
-// Let the browser know that a PDF file is coming.
-header("Content-type: application/pdf");
-header("Content-Length: " . filesize($filename));
-
-// Send the file to the browser.
-readfile($filename);
+if (file_exists($filename))
+{
+  echo "File exists";
+  header('Content-Description: View PDF');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename='.basename($file));
+    header('Content-Transfer-Encoding: binary');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($filename));
+    ob_clean();
+    flush();
+    readfile($filename);
+    exit;
+}
+else
+{
+  echo "file does not exist";
+}
 ?>
