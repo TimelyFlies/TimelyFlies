@@ -5,12 +5,12 @@ $path = "/opt/bitnami/apache2/htdocs/TimelyFlies/";
 $filename = $path . $_GET['file'];
 echo "$filename";
 
-if (file_exists($filename))
-{
-  echo "File exists";
-  header('Content-Description: View PDF');
-    header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename='.basename($file));
+//if (file_exists($filename))
+//{
+//  echo "File exists";
+    header('Content-type: application/pdf');
+    header('Content-Disposition: inline; filename='.basename($filename));
+    header('Content-Description: View PDF');
     header('Content-Transfer-Encoding: binary');
     header('Expires: 0');
     header('Cache-Control: must-revalidate');
@@ -20,9 +20,9 @@ if (file_exists($filename))
     flush();
     readfile($filename);
     exit;
-}
-else
-{
-  echo "file does not exist";
-}
+//}
+//else
+//{
+//  echo "file does not exist";
+//}
 ?>
