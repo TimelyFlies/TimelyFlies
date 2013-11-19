@@ -7,8 +7,6 @@ function getStartingCities(flighttable) {
         request = new ajaxRequest();
         request.open("POST", "startingcities.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //request.setRequestHeader("Content-length", params.length);
-        //request.setRequestHeader("Connection", "close");
 
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
@@ -32,8 +30,6 @@ function getDestinations(flighttable) {
         request = new ajaxRequest();
         request.open("POST", "destinations.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //request.setRequestHeader("Content-length", params.length);
-        //request.setRequestHeader("Connection", "close");
 
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
@@ -57,8 +53,6 @@ function checkDate(date) {
         request = new ajaxRequest();
         request.open("POST", "checkdate.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //request.setRequestHeader("Content-length", params.length);
-        //request.setRequestHeader("Connection", "close");
 
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
@@ -82,8 +76,6 @@ function checkTime(time) {
         request = new ajaxRequest();
         request.open("POST", "checktime.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //request.setRequestHeader("Content-length", params.length);
-        //request.setRequestHeader("Connection", "close");
 
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
@@ -111,8 +103,6 @@ function checkPrice(price, fclass) {
         request = new ajaxRequest();
         request.open("POST", "checkprice.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //request.setRequestHeader("Content-length", params.length);
-        //request.setRequestHeader("Connection", "close");
 
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
@@ -144,8 +134,6 @@ function checkCity(city, cclass) {
         request = new ajaxRequest();
         request.open("POST", "checkcity.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //request.setRequestHeader("Content-length", params.length);
-        //request.setRequestHeader("Connection", "close");
 
         request.onreadystatechange = function() {
             if (this.readyState == 4) {
@@ -174,8 +162,6 @@ function checkUser(user) {
     request = new ajaxRequest();
     request.open("POST", "checkuser.php", true);
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.setRequestHeader("Content-length", params.length);
-    request.setRequestHeader("Connection", "close");
 
     request.onreadystatechange = function() {
         if (this.readyState == 4) {

@@ -22,19 +22,23 @@ if (isset($_POST['start'])) {
     $start = sanitizeString($_POST['start']);
     $flighttable = sanitizeString($_POST['flighttable']);
     $class = sanitizeString($_POST['class']);
-    
+
     $result = queryMysql("SELECT start, destination, date, time, $class FROM $flighttable WHERE start='$start'");
-    
+
     $rows = mysql_num_rows($result);
     if ($rows > 0) {
         echo "<table><thead><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Price</th></thead><tbody>";
         for ($j = 0; $j < $rows; ++$j) {
             $row = mysql_fetch_row($result);
-            $date = $row[2];
             $destination = $row[1];
+            $date = $row[2];
             $time = $row[3];
-            echo "<tr><form name='bookflight' action='ticketing.php' method='POST'>" .
-                "<input type='hidden' name='start' value='$start'/>" .
+            if ($loggedin) {
+                echo "<tr><form name='bookflight' action='ticketing.php' method='POST'>";
+            } else {
+                echo "<tr><form name='bookflight' action='login.php' method='POST'>";
+            }
+            echo "<input type='hidden' name='start' value='$start'/>" .
                 "<input type='hidden' name='flighttable' value='$flighttable'/>" .
                 "<input type='hidden' name='class' value='$class'/>" .
                 "<input type='hidden' name='destination' value='$destination'/>" .

@@ -17,7 +17,7 @@ if ($loggedin)
         $price = sanitizeString($_POST['price']);
         $childprice = .5*$price;
         $totalprice = $price*$adults + $childprice*$children;
-        
+
         echo "<div class='header'><h1>Flight Confirmation</h1></div>";
         echo "<div class='main'>";
         echo "<table><tbody><tr><td><b>Starting City: </b></td><td>$start</td></tr>";
@@ -41,6 +41,15 @@ if ($loggedin)
     else
     {
         die("Some flight information is missing. Please <a href='booking.php'>click here</a> to book your flight again.");
+    }
+
+    if (isset($_SESSION['start']) && isset($_SESSION['destination']) && isset($_SESSION['date']) && isset($_SESSION['time']) && isset($_SESSION['class']) && isset($_SESSION['flighttable'])) {
+        unset($_SESSION['start']);
+        unset($_SESSION['destination']);
+        unset($_SESSION['flighttable']);
+        unset($_SESSION['date']);
+        unset($_SESSION['time']);
+        unset($_SESSION['class']);
     }
 }
 else
