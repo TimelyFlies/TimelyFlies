@@ -9,7 +9,7 @@ if (isset($_POST['date'])) {
     if ($isDateValid) {
         echo "";
     } else {
-        echo "<font color='red' size='2'>Date must be in the form 'YYYY-MM-DD'</font>";
+        echo "<font color='yellow' size='2'>Date must be in the form 'YYYY-MM-DD'</font>";
     }
 }
 ?>
