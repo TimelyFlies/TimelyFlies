@@ -3,7 +3,7 @@
 
 echo "<div class='notice'><h3>Please enter your details to sign up:</h3>";
 
-$error = $user = $pass = "";
+$error = $user = $pass = $pass2 = "";
 if (isset($_SESSION['user'])) {
     destroySession();
 }
@@ -34,7 +34,7 @@ if (isset($_POST['user'])) {
             }
             else
             {
-                $error = "The passwords do not match <br></br>";
+                $error = "The passwords do not match <br/><br/>";
             }
         }
     }
@@ -46,11 +46,11 @@ echo <<<_END
 <input type='text' maxlength='16' name='user' value='$user'
     onBlur='checkUser(this)'/><span id='info'></span><br/>
 <span class='fieldname'>Password</span>
-<input type='password' maxlength='16' name='pass'
-    value='$pass'/><br/>
+<input type='password' maxlength='16' name='pass' id='pass'
+    value='$pass' onBlur='checkPasswords()'/><span id='passwordinfo'></span><br/>
 <span class='fieldname'>Confirm Password</span>
-<input type='password' maxlength='16' name='pass2'
-    value='$pass2'/><br><br/>
+<input type='password' maxlength='16' name='pass2' id='pass2'
+    value='$pass2' onBlur='checkPasswords()'/><br/><br/>
 _END;
 ?>
 
