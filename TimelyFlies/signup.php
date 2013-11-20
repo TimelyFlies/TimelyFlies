@@ -50,7 +50,7 @@ echo <<<_END
     value='$pass'/><br/>
 <span class='fieldname'>Confirm Password</span>
 <input type='password' maxlength='16' name='pass2'
-    value='pass2'/><br/>
+    value='$pass2'/><br/>
 _END;
 ?>
 
