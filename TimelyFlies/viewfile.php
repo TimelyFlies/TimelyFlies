@@ -25,7 +25,7 @@ if ($extension == 'pdf')
 }
 else
 {
-    echo "$filename";
+    echo "$filename <br></br>";
   echo "<img src='$filename'>";
 }
 ?>
