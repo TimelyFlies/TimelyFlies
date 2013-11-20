@@ -14,10 +14,14 @@ if (isset($_POST['user'])) {
     $pass2 = sanitizeString($_POST['pass2']);
     if ($user == '' || $pass == '') {
         $error = "Not all fields were entered.<br/><br/>";
-    } else {
-        if (mysql_num_rows(queryMysql("SELECT * FROM users WHERE username='$user'"))) {
+    } else
+    {
+        if (mysql_num_rows(queryMysql("SELECT * FROM users WHERE username='$user'")))
+        {
             $error = "That username already exists<br/><br/>";
-        } else {
+        }
+        else
+        {
             //new stuff
             if ($pass == $pass2)
             {
@@ -27,6 +31,10 @@ if (isset($_POST['user'])) {
                     echo "User directory creation failed.<br/>";
                 }
                 die("<h4>Account created.</h4>Please log in.<br/><br/>");
+            }
+            else
+            {
+                //something
             }
         }
     }
