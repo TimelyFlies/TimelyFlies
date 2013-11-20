@@ -94,6 +94,6 @@ function checkPasswords() {
     if (pass1 == pass2) {
         O('passwordinfo').innerHTML = "<span><font color='green'>&nbsp;&#x2714; Passwords match</font></span>";
     } else {
-        O('passwordinfo').innerHTML = "<span><font color='red'>&nbsp;&#x2718; Passwords don't match</font></span>"
+        O('passwordinfo').innerHTML = "<span><font color='red'>&nbsp;&#x2718; Passwords don't match</font></span>";
     }
 }
