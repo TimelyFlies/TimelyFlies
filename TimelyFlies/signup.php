@@ -34,7 +34,7 @@ if (isset($_POST['user'])) {
             }
             else
             {
-                //something
+                $error = "The passwords do not match <br></br>";
             }
         }
     }
