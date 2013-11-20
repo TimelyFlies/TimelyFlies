@@ -4,10 +4,11 @@ echo "Testing page version 3";
 $path = "/opt/bitnami/apache2/htdocs/TimelyFlies/";
 $filename = $path . $_GET['file'];
 echo "$filename";
+$extension = pathinfo($filename, PATHINFO_EXTENSION);
 
-//if (file_exists($filename))
-//{
-//  echo "File exists";
+
+if ($extension == 'pdf')
+{
     header('Content-type: application/pdf');
     header('Content-Disposition: inline; filename='.basename($filename));
     header('Content-Description: View PDF');
@@ -20,9 +21,9 @@ echo "$filename";
     flush();
     readfile($filename);
     exit;
-//}
+}
 //else
-//{
-//  echo "file does not exist";
-//}
+{
+  echo "<img src='$filename'>";
+}
 ?>
