@@ -25,7 +25,7 @@ require_once 'header.php';
             readfile($filepath);
             exit ;
         } else {
-            echo "<img src='$user/$filename'>$filename</img>";
+            echo "<img src='$user/$filename'></img>";
         }
     } else {
         echo "Please <a href='login.php'>log in</a> to view your documents";
