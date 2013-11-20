@@ -42,7 +42,7 @@
         if ($isDateValid) {
             return "";
         } else {
-            return "<font color='yellow' size='2'>Date must be in the form 'YYYY-MM-DD'</font>";
+            return "<font color='yellow' size='2'><i>Date must be in the form 'YYYY-MM-DD'</font>";
         }
     }
 ?>
