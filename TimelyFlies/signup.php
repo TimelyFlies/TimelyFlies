@@ -11,18 +11,23 @@ if (isset($_SESSION['user'])) {
 if (isset($_POST['user'])) {
     $user = sanitizeString($_POST['user']);
     $pass = sanitizeString($_POST['pass']);
+    $pass2 = sanitizeString($_POST['pass2']);
     if ($user == '' || $pass == '') {
         $error = "Not all fields were entered.<br/><br/>";
     } else {
         if (mysql_num_rows(queryMysql("SELECT * FROM users WHERE username='$user'"))) {
             $error = "That username already exists<br/><br/>";
         } else {
-            $hashedpass = sha1($pass);
-            queryMysql("INSERT INTO users VALUES('$user', '$hashedpass', 0)");
-            if (!mkdir("$user")) {
-                echo "User directory creation failed.<br/>";
+            //new stuff
+            if ($pass == $pass2)
+            {
+                $hashedpass = sha1($pass);
+                queryMysql("INSERT INTO users VALUES('$user', '$hashedpass', 0)");
+                if (!mkdir("$user")) {
+                    echo "User directory creation failed.<br/>";
+                }
+                die("<h4>Account created.</h4>Please log in.<br/><br/>");
             }
-            die("<h4>Account created.</h4>Please log in.<br/><br/>");
         }
     }
 }
@@ -35,6 +40,8 @@ echo <<<_END
 <span class='fieldname'>Password</span>
 <input type='text' maxlength='16' name='pass'
     value='$pass'/><br/>
+<span class='fieldname'>Confirm Password</span>
+    value='pass2'/><br/>
 _END;
 ?>
 
