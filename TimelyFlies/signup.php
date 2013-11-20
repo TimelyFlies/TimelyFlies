@@ -46,9 +46,10 @@ echo <<<_END
 <input type='text' maxlength='16' name='user' value='$user'
     onBlur='checkUser(this)'/><span id='info'></span><br/>
 <span class='fieldname'>Password</span>
-<input type='text' maxlength='16' name='pass'
+<input type='password' maxlength='16' name='pass'
     value='$pass'/><br/>
 <span class='fieldname'>Confirm Password</span>
+<input type='password' maxlength='16' name='pass2'
     value='pass2'/><br/>
 _END;
 ?>
