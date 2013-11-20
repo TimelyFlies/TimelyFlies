@@ -22,7 +22,7 @@ if ($extension == 'pdf')
     readfile($filename);
     exit;
 }
-//else
+else
 {
   echo "<img src='$filename'>";
 }
