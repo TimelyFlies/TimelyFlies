@@ -1,11 +1,12 @@
 <?php
 require_once 'header.php';
 //echo "Testing page version 3";
-$path = "/opt/bitnami/apache2/htdocs/TimelyFlies/";
+$user = $_SESSION['user'];
+$path = "/opt/bitnami/apache2/htdocs/TimelyFlies/" . $user;
+$path = $path . "/";
 $filename = $path . $_GET['file'];
 //echo "$filename";
 $extension = pathinfo($filename, PATHINFO_EXTENSION);
-
 
 if ($extension == 'pdf')
 {
@@ -24,6 +25,7 @@ if ($extension == 'pdf')
 }
 else
 {
+    echo "$filename";
   echo "<img src='$filename'>";
 }
 ?>
