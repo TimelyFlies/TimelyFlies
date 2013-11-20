@@ -1,9 +1,9 @@
 <?php
 require_once 'header.php';
-echo "Testing page version 3";
+//echo "Testing page version 3";
 $path = "/opt/bitnami/apache2/htdocs/TimelyFlies/";
 $filename = $path . $_GET['file'];
-echo "$filename";
+//echo "$filename";
 $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
 
