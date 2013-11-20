@@ -77,3 +77,13 @@ function validateQuery(form) {
         }
     }
 }
+
+function checkTickets(form) {
+    if (form.adult.value == 0 && form.child.value == 0) {
+        O('ticketerror').innerHTML = "<font color='yellow'><i>You must book at least one child or adult ticket.<br/></i></font>";
+        return false;
+    } else {
+        O('ticketerror').innerHTML = "";
+        return true;
+    }
+}

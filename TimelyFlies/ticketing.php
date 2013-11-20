@@ -22,7 +22,7 @@ if ($loggedin) {
 
     echo "<div id='container'><div id='header' class='header'><h1>Ticketing</h1></div>";
     echo "<div id='menu' class='menubar'>";
-    echo "<form name='tickets' action='confirmation.php' method='post'>";
+    echo "<form name='tickets' action='confirmation.php' onSubmit='return checkTickets(this)' method='post'>";
 
     $result = queryMysql("SELECT start, destination, date, time, $class FROM $flighttable WHERE start='$start' AND destination='$destination' AND date='$date' AND time='$time'");
     $rows = mysql_num_rows($result);
@@ -63,7 +63,7 @@ if ($loggedin) {
     echo "<input type='hidden' name='time' value='$time'/>";
     echo "<input type='hidden' name='class' value='$class'/>";
     echo "<input type='hidden' name='price' value='$price'/>";
-
+    echo "<span id='ticketerror'></span>";
     echo "<input type='submit' value='Book Flight'/>";
 
     echo "</form>";
