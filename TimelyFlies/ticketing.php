@@ -20,7 +20,7 @@ if ($loggedin) {
         die("Some flight information is missing. Please return to <a href='browse.php'>browsing</a> or <a href='booking.php'>booking</a> and select your flight again.");
     }
 
-    echo "<div id='container'><div id='header' class='header'><h1>Ticketing</h1></div>";
+    echo "<div id='container'><div id='header' class='header'><h2>Ticketing</h2></div>";
     echo "<div id='menu' class='menubar'>";
     echo "<form name='tickets' action='confirmation.php' onSubmit='return checkTickets(this)' method='post'>";
 
@@ -71,7 +71,7 @@ if ($loggedin) {
 
     echo "<div id='flights' class='main'>";
     if ($rows > 0) {
-        echo "<table><thead><tr><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Class</th><th>Price</th></tr></thead><tbody>";
+        echo "<table class='ftable'><thead><tr><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Class</th><th>Price</th></tr></thead><tbody>";
         echo "<tr><td>$start</td><td>$destination</td><td>$date</td><td>$time</td><td>$class</td><td>$$price<td/></tr>";
         echo "</tbody></table>";
     } else {

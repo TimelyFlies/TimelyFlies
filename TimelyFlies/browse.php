@@ -106,13 +106,18 @@ if ($errors == "") {
 
     $rows = mysql_num_rows($result);
     if ($rows > 0) {
-        echo "<table><thead><tr><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Price</th></tr></thead><tbody>";
+        echo "<table class='ftable'><thead><tr><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Price</th></tr></thead><tbody>";
         for ($j = 0; $j < $rows; ++$j) {
             $row = mysql_fetch_row($result);
             $start = $row[0];
             $destination = $row[1];
             $date = $row[2];
             $time = $row[3];
+            if ($j % 2 == 0) {
+                $class = "";
+            } else {
+                $class = " class='alt'";
+            }
 
             if ($loggedin) {
                 echo "<tr><form name='bookflight' action='ticketing.php' method='POST'>";
@@ -125,7 +130,7 @@ if ($errors == "") {
                 "<input type='hidden' name='destination' value='$destination'/>" .
                 "<input type='hidden' name='date' value='$date'/>" .
                 "<input type='hidden' name='time' value='$time'/>" .
-                "<tr><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$$row[4]</td>" .
+                "<tr$class><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$$row[4]</td>" .
                 "<td><input type='submit' value='Tickets'/></td></form></tr>";
         }
         echo "</tbody></table>";

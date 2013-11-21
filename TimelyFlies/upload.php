@@ -6,12 +6,12 @@ if ($loggedin) {
     if (isset($_SESSION['user'])) {
         $user = sanitizeString($_SESSION['user']);
         $path .= $user . "/";
-        echo "<div id='container'><div id='header' class='header'><h1>File Uploader</h1></div>";
+        echo "<div id='container'><div id='header' class='header'><h2>File Uploader</h2></div>";
 
         echo "<h4>You can use this tool to upload files such as tickets or boarding passes. Permitted extensions are ";
         $allowedextensions = array("gif", "jpeg", "jpg", "png", "pdf");
         $size = count($allowedextensions);
-        
+
         for($i = 0; $i < $size-1; $i++)
         {
                   echo "$allowedextensions[$i], ";
