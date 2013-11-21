@@ -10,6 +10,8 @@ if (isset($_POST['date'])) {
 $errors = "";
 $errors .= $dateError;
 
+echo "<noscript><style type='text/css'>#container {display:none;}</style>";
+echo "<div>You don't have JavaScript enabled. Please enable JavaScript in your browser or switch to a browser that supports it.</div></noscript>";
 echo "<div id='container'><div id='header' class='header'><h2>Browse Flights</h2></div>";
 echo "<div id='menu' class='menubar'>";
 echo "<form name='browse' action='browse.php' onsubmit='return validateQuery(this)' method='post'>";
