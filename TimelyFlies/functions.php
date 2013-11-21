@@ -1,8 +1,8 @@
 <?php
     $dbhost = 'localhost';
     $dbname = 'timelyflies';
-    $dbuser = 'timelyflies';
-    $dbpass = 'timelyflies';
+    $dbuser = 'root';
+    $dbpass = 'bitnami';
     $appname = 'Timely Flies';
 
     mysql_connect($dbhost, $dbuser, $dbpass) or die(mysql_error());
