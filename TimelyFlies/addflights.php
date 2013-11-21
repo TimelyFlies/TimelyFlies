@@ -31,7 +31,7 @@
         echo "<label>   Destination <input type='text' maxlength='32' name='destination' onBlur='checkCity(this, 1)' value='$destination' required/></label><br/>";
         echo "               <span id='destinfo'><font color='red'>$errors[1]</font></span><br/>";
         echo "<label>          Date <input type='text' maxlength='10' name='date' onBlur='checkDate(this)' value='$date' required/></label><br/>";
-        echo "               <span id='info'><font color='red'>$errors[2]</font></span><br/>";
+        echo "               <font color='red'><span id='info'>$errors[2]</span></font><br/>";
         echo "<label>          Time <input type='text' maxlength='8' name='time' onBlur='checkTime(this)' value='$time' required/></label><br/>";
         echo "               <span id='timeinfo'><font color='red'>$errors[3]</font></span><br/>";
         echo "<label> Economy Price <input type='text' name='economy' onBlur='checkPrice(this, 0)' value='$economy' required/></label><br/>";
