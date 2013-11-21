@@ -28,7 +28,7 @@ echo "</select><br/><br/>";
 echo "Date:<br/>";
 echo "<input type='text' maxlength='10' size='10' name='date' id='date' onBlur='checkDate(this)'/><br/>";
 echo "<font size='2' color='yellow'><span id='info'></span></font><br/>";
-echo "Class:</br>";
+echo "Class:<br/>";
 echo "<label><input type='radio' name='class' value='economy' checked/>Economy</label><br/>";
 echo "<label><input type='radio' name='class' value='business'/>Business</label><br/><br/>";
 echo "<input type='submit' value='Browse Flights'/>";
