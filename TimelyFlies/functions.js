@@ -50,7 +50,7 @@ function isDateValid(date) {
 function isTimeValid(time) {
     var fail = '';
     if (!/^([1-9]|1[0-2]):([0-5][0-9])\s([AP]M)$/.test(time)) {
-        fail = "Time must be in the form 'HH:MM (A/P)M. Do not use a leading 0.\n";
+        fail = "Time must be in the form 'HH:MM (A/P)M'. Do not use a leading 0.\n";
     }
     return fail;
 }
