@@ -72,7 +72,7 @@ if ($loggedin) {
     echo "<div id='flights' class='main'>";
     if ($rows > 0) {
         echo "<table class='ftable'><thead><tr><th>Start</th><th>Destination</th><th>Date</th><th>Time</th><th>Class</th><th>Price</th></tr></thead><tbody>";
-        echo "<tr><td>$start</td><td>$destination</td><td>$date</td><td>$time</td><td>$class</td><td>$$price<td/></tr>";
+        echo "<tr><td>$start</td><td>$destination</td><td>$date</td><td>$time</td><td>$class</td><td>$$price</td></tr>";
         echo "</tbody></table>";
     } else {
         echo "That flight wasn't found. Please return to the <a href='booking.php'>booking page</a> and select your flight again.";
