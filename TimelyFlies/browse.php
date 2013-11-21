@@ -114,9 +114,9 @@ if ($errors == "") {
             $date = $row[2];
             $time = $row[3];
             if ($j % 2 == 0) {
-                $class = "";
+                $tableclass = "";
             } else {
-                $class = " class='alt'";
+                $tableclass = " class='alt'";
             }
 
             if ($loggedin) {
@@ -130,7 +130,7 @@ if ($errors == "") {
                 "<input type='hidden' name='destination' value='$destination'/>" .
                 "<input type='hidden' name='date' value='$date'/>" .
                 "<input type='hidden' name='time' value='$time'/>" .
-                "<tr$class><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$$row[4]</td>" .
+                "<tr$tableclass><td>$row[0]</td><td>$row[1]</td><td>$row[2]</td><td>$row[3]</td><td>$$row[4]</td>" .
                 "<td><input type='submit' value='Tickets'/></td></form></tr>";
         }
         echo "</tbody></table>";
