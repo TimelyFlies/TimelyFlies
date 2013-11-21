@@ -9,7 +9,7 @@ if (isset($_POST['price'])) {
     if ($isPriceValid === 1) {
         echo "";
     } else {
-        echo "Price should only contain digits.";
+        echo "<font color='red' size='2'>Price should only contain digits.</font>";
     }
 }
 ?>
