@@ -74,14 +74,14 @@ if ($errors == "") {
     if ($startSpecified && $destinationSpecified && $dateSpecified) {
         // start, destination, and date have been specified
         $whereClause = "WHERE start='$start' AND destination='$destination' AND date='$date' ";
-        $orderBy = "ORDER BY time, $class";
+        $orderBy = "ORDER BY time";
     } else if ($startSpecified && $destinationSpecified && !$dateSpecified) {
         // start and destination have been specified
         $whereClause = "WHERE start='$start' AND destination='$destination' ";
         $orderBy = "ORDER BY date";
     } else if ($startSpecified && !$destinationSpecified && $dateSpecified) {
         // start and date have been specified
-        $whereClause = "WHERE start='$start' AND $date='$date' ";
+        $whereClause = "WHERE start='$start' AND date='$date' ";
         $orderBy = "ORDER BY destination";
     } else if ($startSpecified && !$destinationSpecified && !$dateSpecified) {
         // start has been specified
